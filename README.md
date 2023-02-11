@@ -10,6 +10,8 @@ Business Rules:
 - Output `option title`, `description`, `price` and `discount`.
 - Ordered by annual price with the most expensive package first.
 
+`Caveat: Developed and tested on Linux.`
+
 Requirements
 -----
 
