@@ -15,7 +15,8 @@ use Goutte\Client;
  */
 abstract class WebRepository
 {
-    public function __construct(protected ProductConfig $config, protected Client $client) {}
+    public function __construct(protected ProductConfig $config, protected Client $client)
+    {}
 
     public function fetchContainerCrawler(): Crawler
     {
