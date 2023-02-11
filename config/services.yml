@@ -1,0 +1,29 @@
+services:
+  _defaults:
+    autowire: true
+
+  _instanceof:
+    Symfony\Component\Console\Command\Command:
+      tags: ['command']
+
+  WirelessLogic\Application:
+    public: true
+    arguments:
+      - !tagged command
+
+  WirelessLogic\App\Command\ScrapeCommand:
+
+  WirelessLogic\App\Service\ProductService:
+
+  WirelessLogic\App\Service\ProductNodeService:
+    arguments: ['@product_config']
+
+  WirelessLogic\App\Repository\ProductRepository:
+    arguments: ['@product_config']
+
+  Goutte\Client:
+    tags: ['http_client']
+
+  product_config:
+    class: WirelessLogic\App\Config\Product
+    arguments: ['%scrape.url%', '%scrape.container_selector%', '%scrape.option_title_selector%', '%scrape.name_selector%', '%scrape.description_selector%', '%scrape.price_selector%', '%scrape.price_frequency_selector%', '%scrape.discount_selector%']

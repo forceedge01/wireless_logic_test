@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+
+include $_composer_autoload_path ?? __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\FileLocator;
+use WirelessLogic\Application;
+
+/**
+ * This application uses symfony container to handle dependency injection.
+ */
+$containerBuilder = new ContainerBuilder();
+$loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__ . '/../config'));
+$loader->load('parameters.yml');
+$loader->load('services.yml');
+
+$containerBuilder->compile();
+
+try {
+    exit($containerBuilder->get(Application::class)->run());
+} catch (Exception $e) {
+    echo 'Unable to initialise command, ' . $e->getMessage() . PHP_EOL;
+    exit(1);
+}

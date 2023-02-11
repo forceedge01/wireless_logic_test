@@ -1,0 +1,9 @@
+parameters:
+  scrape.url: 'https://wltest.dns-systems.net/'
+  scrape.container_selector: 'body #subscriptions .pricing-table .package'
+  scrape.option_title_selector: '.header h3'
+  scrape.name_selector: '.package-features .package-name'
+  scrape.description_selector: '.package-features .package-description'
+  scrape.price_selector: '.package-features .package-price .price-big'
+  scrape.price_frequency_selector: '.package-features .package-price'
+  scrape.discount_selector: '.package-features .package-price p'
