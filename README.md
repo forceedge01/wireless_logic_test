@@ -12,6 +12,16 @@ Business Rules:
 
 `Caveat: Developed and tested on Linux.`
 
+Outstanding Improvements
+----
+
+- Integration/feature tests for the command.
+- Project classes heavily depend on concretion, use interfaces more.
+- Entity properties to be accessed by methods and properties made private.
+- CI implementation.
+- Remove lingering namespaces in classes.
+- Collection to be made iterable.
+
 Requirements
 -----
 
